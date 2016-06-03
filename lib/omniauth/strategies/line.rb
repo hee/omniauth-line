@@ -11,12 +11,6 @@ module OmniAuth
                                :token_url     => '/v1/oauth/accessToken',
                                :proxy => ENV['http_proxy'] ? URI(ENV['http_proxy']) : nil}
 
-      # host changed
-      def callback_phase
-        options[:client_options][:site] = 'https://api.line.me'
-        super
-      end
-
       uid { raw_info['mid'] }
 
       info do
